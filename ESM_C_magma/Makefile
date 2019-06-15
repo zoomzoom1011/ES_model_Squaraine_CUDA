@@ -1,4 +1,4 @@
-src     = esm_c_magma.cu
+src     = sub/esm_c_magma.cu
 exes    = esm_c_magma.exe
 NVCC    = nvcc
 INC     = -I$(CUDADIR)/include -I$(MKLROOT)/include -I$(MAGMADIR)/include
@@ -9,7 +9,7 @@ LIBDIRS = -L/opt/intel/mkl/lib -L/Developer/NVIDIA/CUDA-10.1/lib -L/Users/user/m
 INCDIRS = -I/opt/intel/mkl/include -I/Developer/NVIDIA/CUDA-10.1/include -I/Users/user/magma-2.4.0/include 
 
 
-all: ${exes}
+#all: ${exes}
 
 ${exes}: ${src}
 	$(NVCC) $(src) -o $(exes) $(FLAGS) $(LIBDIRS) $(LIBS) $(INCDIRS)
