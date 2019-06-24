@@ -154,21 +154,13 @@ double volap(double lambda1, int vib1, double lambda2, int vib2) {
 // }
 
 int main(int argc, char** argv) {
-    // auto start = high_resolution_clock::now(); 
-    // clock_t t1,t2;
-    // t1=clock();
-    // float elapsed=0;
-    // cudaEvent_t start, stop;
 
-    // cudaEventCreate(&start);
-    // cudaEventCreate(&stop);
-    // cudaEventRecord(start, 0);
     time_t start=time(NULL), end;
 
     magma_print_environment();
 
     // GPU variables                 
-    //const int           blockSize = 128;                                                // The number of threads to launch per block
+    //const int           blockSize = 128;        // The number of threads to launch per block
 
 
     // ***              Variable Declaration            *** //
@@ -184,19 +176,18 @@ int main(int argc, char** argv) {
     }
 
     // retrieve and print info about gpu
-    // cudaDeviceProp prop;
-    // cudaGetDeviceProperties(&prop,0);
-    // printf("\nGPU INFO:\n"
-    //        "\tDevice name: %s\n"
-    //        "\tMemory: %g gb\n",
-    //        prop.name, prop.totalGlobalMem/(1.E9));
+    cudaDeviceProp prop;
+    cudaGetDeviceProperties(&prop,0);
+    printf("\nGPU INFO:\n"
+           "\tDevice name: %s\n"
+           "\tMemory: %g gb\n",
+           prop.name, prop.totalGlobalMem/(1.E9));
     
     // // register signal handler to take care of interruption and termination signals
     // signal( SIGINT,  signal_handler );
     // signal( SIGTERM, signal_handler );
     
     // read input file
-    // void read_para_file(argv[1]); 
 
     printf("\n>>> Setting parameters\n");
     
